@@ -1,0 +1,131 @@
+@import "https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap";
+
+:root {
+  --darken: #1f1f1f;
+  --kaki: hsl(0, 0%, 27%);
+  --blueish: #a850ff;
+  --reddish: #ee4f51;
+  --sil: #333333ae;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--darken);
+  font-family: "Work Sans", sans-serif;
+  font-weight: normal;
+  color: white;
+}
+
+::-webkit-scrollbar {
+  height: 5px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: none;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #272727;
+  border-radius: 6px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+
+#root {
+  display: flex;
+  height: 100vh;
+
+  & #calculator {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    & h1 {
+      font-size: larger;
+      padding: 25px 15px;
+    }
+
+    & .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+
+      & .logger-wrapper {
+        & #logger {
+          text-align: right;
+          margin: 20px 0;
+          margin-bottom: 30px;
+          padding: 40px 0;
+          font-size: 48px;
+          color: inherit;
+          overflow-x: auto;
+        }
+      }
+
+      & #keypad {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 8px;
+
+        & .key {
+          font-size: x-large;
+          background: var(--sil);
+          border: none;
+          border-radius: 10px;
+          outline: none;
+          color: inherit;
+
+          &[data-key="="] {
+            background: var(--blueish);
+          }
+
+          &.fn {
+            color: var(--darken);
+            background: var(--reddish);
+          }
+        }
+      }
+    }
+  }
+
+  & #clipart {
+    display: none;
+    flex: 1;
+    margin-right: 50px;
+    justify-content: center;
+    align-items: center;
+
+    & img {
+      max-width: 90%;
+      max-height: 90%;
+      background: transparent;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #root {
+    & #calculator {
+      flex: auto;
+      max-width: 380px;
+      margin: 20px;
+      height: calc(100vh - 40px);
+      box-shadow: 0 2px 6px var(--kaki);
+      border-radius: 15px;
+      background: var(--darken);
+    }
+
+    & #clipart {
+      display: flex;
+    }
+  }
+}
