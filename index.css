@@ -20,6 +20,23 @@ body {
   color: white;
 }
 
+::-webkit-scrollbar {
+  height: 5px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: none;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #272727;
+  border-radius: 6px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+
 #root {
   display: flex;
   height: 100vh;
@@ -28,6 +45,7 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 
     & h1 {
       font-size: larger;
@@ -40,12 +58,16 @@ body {
       flex-direction: column;
       padding: 10px;
 
-      & #logger {
-        text-align: right;
-        margin: 10px 0;
-        padding: 50px 20px;
-        font-size: 48px;
-        color: inherit;
+      & .logger-wrapper {
+        & #logger {
+          text-align: right;
+          margin: 20px 0;
+          margin-bottom: 30px;
+          padding: 40px 0;
+          font-size: 48px;
+          color: inherit;
+          overflow-x: auto;
+        }
       }
 
       & #keypad {
